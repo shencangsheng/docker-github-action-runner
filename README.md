@@ -1,6 +1,6 @@
 # Docker Github Action Runner
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/shencangsheng/pgrx.svg)](https://hub.docker.com/r/shencangsheng/action-runner)
+[![Docker Pulls](https://img.shields.io/docker/pulls/shencangsheng/action-runner.svg)](https://hub.docker.com/r/shencangsheng/action-runner)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
 
 ## 💡 Trying
