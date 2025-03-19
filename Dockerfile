@@ -4,7 +4,7 @@ FROM --platform=linux/amd64 debian:bullseye-slim
 ENV RUNNER_VERSION=2.321.0
 
 # Add build argument for Aliyun mirror option
-ARG USE_ALIYUN_MIRROR=true
+ARG USE_ALIYUN_MIRROR=false
 
 # Install required packages (with optional Aliyun mirror)
 RUN if [ "$USE_ALIYUN_MIRROR" = "true" ]; then \
@@ -13,9 +13,10 @@ RUN if [ "$USE_ALIYUN_MIRROR" = "true" ]; then \
     fi && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
+    ca-certificates \
     curl \
-    sudo \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && update-ca-certificates
 
 # Create runner user and working directory
 RUN useradd -m runner
