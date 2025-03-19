@@ -18,8 +18,9 @@ RUN if [ "$USE_ALIYUN_MIRROR" = "true" ]; then \
     && rm -rf /var/lib/apt/lists/*
 
 # Create runner user and working directory
-RUN useradd -m runner && \
-    echo "runner ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+RUN useradd -m runner
+
+USER runner
 
 WORKDIR /home/runner
 
@@ -29,9 +30,13 @@ RUN curl -o actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz -L https://github.
     rm -f ./actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz
 
 # Copy entrypoint script and install dependencies
-COPY --chown=runner:runner docker-entrypoint.sh /docker-entrypoint.sh
-RUN chmod +x /docker-entrypoint.sh && \
-    ./bin/installdependencies.sh
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+
+USER root
+
+RUN ./bin/installdependencies.sh
+
+RUN chmod +x /docker-entrypoint.sh
 
 # Switch to runner user
 USER runner
