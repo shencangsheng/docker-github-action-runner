@@ -1,0 +1,17 @@
+version: "3"
+services:
+  action-runner:
+    image: shencangsheng/action-runner:2.321.0
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - "/usr/bin/docker:/usr/bin/docker"
+      - "/usr/libexec/docker/cli-plugins:/usr/libexec/docker/cli-plugins"
+      - action-runner-artifacts:/var/artifacts
+    environment:
+      REPO_URL:
+      RUNNER_TOKEN:
+      RUNNER_NAME:
+    restart: always
+volumes:
+  action-runner-artifacts:
+    external: true
