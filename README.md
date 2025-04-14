@@ -14,11 +14,12 @@ docker compose up -d
 
 <span style="color:gray"> Host your own runners and customize the environment used to run jobs in your GitHub Actions workflows. </span> [Learn more about self-hosted runners](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
 
-| Parameter      | Description                |
-| -------------- | -------------------------- |
-| `REPO_URL`     | The URL of the repository. |
-| `RUNNER_TOKEN` | The token for the runner.  |
-| `RUNNER_NAME`  | The name of the runner.    |
+| Parameter       | Description                |
+| --------------- | -------------------------- |
+| `REPO_URL`      | The URL of the repository. |
+| `RUNNER_TOKEN`  | The token for the runner.  |
+| `RUNNER_NAME`   | The name of the runner.    |
+| `RUNNER_LABELS` | The labels for the runner. |
 
 ## 📝 License
 

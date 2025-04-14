@@ -17,7 +17,8 @@ echo "Configuring GitHub Actions Runner..."
     --name "${RUNNER_NAME}" \
     --work "_work" \
     --unattended \
-    --replace
+    --replace \
+    --labels "${RUNNER_LABELS}"
 
 # Start the runner and wait for it to finish
 echo "Starting GitHub Actions Runner..."
